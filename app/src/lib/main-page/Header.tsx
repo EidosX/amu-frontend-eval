@@ -8,7 +8,7 @@ import Image from "next/image"
 
 export const Header = () => {
   return (
-    <Flex gap={16} px={24} py={16} alignItems='center'>
+    <Flex gap={16} px={24} py={28} alignItems='center'>
       <Image
         src='/landing-bg.jpg'
         alt='a person making computations'
