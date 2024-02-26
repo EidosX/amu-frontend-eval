@@ -8,7 +8,7 @@ import Image from "next/image"
 
 export const Header = () => {
   return (
-    <Flex gap={20} px={28} py={16} alignItems='center'>
+    <Flex gap={16} px={24} py={16} alignItems='center'>
       <Image
         src='/landing-bg.jpg'
         alt='a person making computations'
@@ -16,7 +16,7 @@ export const Header = () => {
         objectFit='cover'
         style={{ position: "absolute", zIndex: -1, opacity: 0.4 }}
       ></Image>
-      <Logo size={340} />
+      <Logo svgProps={{ style: { flexShrink: 0 } }} size={240} />
       <Flex direction='column' gap={2}>
         <Title />
         <Description />
