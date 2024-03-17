@@ -26,6 +26,7 @@
     "cypress": "^9.2.0"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.10.0"
+    "@supabase/supabase-js": "^2.10.0",
+    "zod": "^3.22.4"
   }
 }

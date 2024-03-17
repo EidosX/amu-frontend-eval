@@ -8,12 +8,11 @@ import Image from "next/image"
 
 export const Header = () => {
   return (
-    <Flex gap={16} px={24} py={28} alignItems='center'>
+    <Flex gap={16} px={24} py={28} alignItems='center' pos='relative'>
       <Image
         src='/landing-bg.jpg'
         alt='a person making computations'
-        layout='fill'
-        objectFit='cover'
+        fill
         style={{ position: "absolute", zIndex: -1, opacity: 0.4 }}
       ></Image>
       <Logo svgProps={{ style: { flexShrink: 0 } }} size={240} />
