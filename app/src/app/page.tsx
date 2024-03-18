@@ -4,7 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 import { Header } from "@/app/main-page/Header"
-import { CustomerListSection } from "@/app/(customer)/CustomerList"
+import { CustomerListSection } from "@/app/(customer)/CustomerListSection"
 
 export default function Home() {
   return (

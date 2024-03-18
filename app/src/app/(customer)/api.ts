@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-import { CreateCustomerDto, Customer, customerSchema } from "../model"
+import { CreateCustomerDto, Customer, customerSchema } from "./model"
 import { API_KEY, API_URL } from "@/../../cypress/utils"
 
 export const customerApi = {
@@ -26,5 +26,12 @@ export const customerApi = {
     })
       .then(response => response.json())
       .then(customerSchema.array().parse)
+  },
+  async get(id: number): Promise<Customer> {
+    return fetch(`${API_URL}/customer?id=eq.${id}`, {
+      headers: { apiKey: API_KEY }
+    })
+      .then(response => response.json())
+      .then(items => customerSchema.parse(items[0]))
   }
 }

@@ -9,7 +9,7 @@ import { Box, Button, Card, Input, Spinner, Stack, Text } from "@chakra-ui/react
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { CreateCustomerDto, createCustomerDtoSchema } from "../model"
-import { customerApi } from "./api"
+import { customerApi } from "../api"
 import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
@@ -33,15 +33,16 @@ export default function CreateUserPage() {
       const customer = await customerApi.create(userDTO)
       console.log(customer)
       router.push("/")
+      router.refresh()
       toast("Le client a été crée!")
-    } finally {
+    } catch {
       setIsLoading(false)
     }
   }
 
   return (
     <Box h='100vh' display='flex' justifyContent='center' alignItems='center'>
-      <Card maxW={400} px={4} py={8}>
+      <Card w={500} px={12} py={16}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Stack spacing={6}>
             <Text textTransform='uppercase' fontWeight={800} fontSize={40}>
@@ -53,13 +54,14 @@ export default function CreateUserPage() {
                 aria-invalid={errors.fullName ? "true" : "false"}
                 {...register("fullName")}
               />
-              <Input type='email' placeholder='Adresse mail' {...register("email")} />
+              <Input
+                type='email'
+                placeholder='Adresse mail'
+                aria-invalid={errors.email ? "true" : "false"}
+                {...register("email")}
+              />
             </Stack>
-            <Button
-              type='submit'
-              aria-invalid={errors.email ? "true" : "false"}
-              isDisabled={isLoading}
-            >
+            <Button type='submit' isDisabled={isLoading}>
               {!isLoading ? "Créer le client" : <Spinner />}
             </Button>
           </Stack>
