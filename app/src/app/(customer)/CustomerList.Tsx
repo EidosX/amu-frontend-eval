@@ -16,7 +16,7 @@ import { CustomerCard } from "./CustomerCard"
 export const CustomerList = () => {
   // En vrai, avec Next 14 et la nouvelle archi (app directory)
   // il vaut mieux faire un Server Component et await l'appel à l'API
-  // dans un composant async. Je l'ai fait pour le customer details.
+  // dans un composant async
   //
   // Cela fera la requête depuis le serveur, ce sera plus rapide et
   // c'est bénefique pour le SEO (et puis c'est plus simple).

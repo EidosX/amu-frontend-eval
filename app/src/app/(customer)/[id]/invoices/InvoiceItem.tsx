@@ -16,14 +16,14 @@ export const InvoiceItem = ({ invoice }: { invoice: Invoice }) => {
     <Card w='100%' px={6} py={4} display='flex' flexDir='row'>
       <Text fontWeight='bold'>{invoice.amount}€</Text>
       <Flex ml='auto' gap={4}>
-        {status.status == "paid" && <Text color='green'>Payée</Text>}
-        {status.status == "unpaid" && <Text color='red'>Non payée</Text>}
+        {status.status == "PAID" && <Text color='green'>Payée</Text>}
+        {status.status == "SENT" && <Text color='red'>Non payée</Text>}
         <Switch
-          isChecked={status.status == "paid"}
+          isChecked={status.status == "PAID"}
           isDisabled={status.loading}
           onChange={async e => {
             const oldStatus = status.status
-            const newStatus = e.target.checked ? "paid" : "unpaid"
+            const newStatus = e.target.checked ? "PAID" : "SENT"
             setStatus({ status: newStatus, loading: true })
             try {
               const newInvoice = await invoiceApi.update({

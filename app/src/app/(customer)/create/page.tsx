@@ -62,7 +62,7 @@ export default function CreateUserPage() {
               />
             </Stack>
             <Button type='submit' isDisabled={isLoading}>
-              {!isLoading ? "Créer le client" : <Spinner />}
+              {!isLoading ? "Enregistrer" : <Spinner />}
             </Button>
           </Stack>
         </form>

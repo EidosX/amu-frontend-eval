@@ -10,7 +10,7 @@ export const invoiceSchema = z.object({
   customerId: z.coerce.number().int(),
   createdAt: z.coerce.date(),
   amount: z.coerce.number().int(),
-  status: z.enum(["paid", "unpaid"])
+  status: z.enum(["PAID", "SENT"])
 })
 
 export type Invoice = z.infer<typeof invoiceSchema>

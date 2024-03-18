@@ -11,6 +11,7 @@ import {
   Card,
   Flex,
   Input,
+  Select,
   Spinner,
   Stack,
   Switch,
@@ -38,7 +39,7 @@ export default function AddInvoice({
     watch
   } = useForm<CreateInvoiceDto>({
     resolver: zodResolver(createInvoiceDtoSchema),
-    defaultValues: { customerId, status: "unpaid" }
+    defaultValues: { customerId, status: "SENT" }
   })
   const router = useRouter()
   const status = watch("status")
@@ -65,7 +66,7 @@ export default function AddInvoice({
         <form onSubmit={handleSubmit(onSubmit)}>
           <Stack spacing={6}>
             <Text textTransform='uppercase' fontWeight={800} fontSize={40}>
-              Créer une facture
+              Nouvelle facture
             </Text>
             <Stack spacing={3} direction='row'>
               <Input
@@ -74,22 +75,13 @@ export default function AddInvoice({
                 aria-invalid={errors.amount ? "true" : "false"}
                 {...register("amount")}
               />
-              <Card flexShrink={0}>
-                <Text my='auto' color={status == "paid" ? "green" : "red"} mx={4}>
-                  {status == "paid" ? "Payée" : "Non payée"}
-                  <Switch
-                    ml={2}
-                    isChecked={status == "paid"}
-                    onChange={e => {
-                      const status = e.target.checked ? "paid" : "unpaid"
-                      setValue("status", status)
-                    }}
-                  />
-                </Text>
-              </Card>
+              <Select {...register("status")} defaultValue='SENT'>
+                <option value='PAID'>Payée</option>
+                <option value='SENT'>Non payée</option>
+              </Select>
             </Stack>
             <Button type='submit' isDisabled={isLoading}>
-              {!isLoading ? "Créer le client" : <Spinner />}
+              {!isLoading ? "Enregistrer la facture" : <Spinner />}
             </Button>
           </Stack>
         </form>
