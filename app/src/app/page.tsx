@@ -4,7 +4,6 @@
 // https://opensource.org/licenses/MIT
 
 import { Header } from "@/app/main-page/Header"
-import Image from "next/image"
 import { CustomerListSection } from "@/app/(customer)/CustomerList"
 
 export default function Home() {

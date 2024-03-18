@@ -20,11 +20,11 @@ export const customerApi = {
       .then(response => response.json())
       .then(items => customerSchema.parse(items[0]))
   },
-  async list(): Promise<Customer> {
-    return fetch(`${API_URL}?order=created_at`, {
+  async list(): Promise<Customer[]> {
+    return fetch(`${API_URL}/customer?order=createdAt`, {
       headers: { apiKey: API_KEY }
     })
       .then(response => response.json())
-      .then(customerSchema.parse)
+      .then(customerSchema.array().parse)
   }
 }

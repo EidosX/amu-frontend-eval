@@ -6,7 +6,7 @@
 import { z } from "zod"
 
 export const customerSchema = z.object({
-  id: z.string().uuid(),
+  id: z.number().int(),
   createdAt: z.coerce.date(),
   fullName: z.string().min(3),
   email: z.string().email()
