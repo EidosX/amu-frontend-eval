@@ -6,7 +6,8 @@
 import { z } from "zod"
 
 export const invoiceSchema = z.object({
-  user: z.string().uuid(),
+  customerId: z.string().uuid(),
+  createdAt: z.coerce.date(),
   amount: z.number().int(),
   status: z.enum(["paid", "unpaid"])
 })

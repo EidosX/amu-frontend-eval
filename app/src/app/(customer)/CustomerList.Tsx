@@ -6,7 +6,7 @@
 import { Box, Card, Flex, Text } from "@chakra-ui/react"
 import Image from "next/image"
 
-export const UserListSection = () => {
+export const CustomerListSection = () => {
   return (
     <Flex px={28} py={12} gap={6}>
       <Flex flexDir='column'>
