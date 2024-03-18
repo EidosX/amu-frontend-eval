@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "cd app && npm run dev",
-    "start": "echo 'ERROR: TODO' && exit 127",
+    "start": "cd app && npm run build && npm run start",
     "cy:run": "cypress run",
     "cy:open": "cypress open"
   },
